@@ -3,7 +3,7 @@
   "homepage": "https://knjaz1989.github.io/ahj_h3_t1/",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
@@ -11,7 +11,7 @@
     "test": "jest --coverage",
     "coverage": "jest --coverage",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": "Evgeniy Malikov <evgeny.m3v@yandex.ru>",
   "license": "ISC",

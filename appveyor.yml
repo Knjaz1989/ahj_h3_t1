@@ -19,5 +19,5 @@ build_script:
 test_script:
   - npm run lint  # скрипт тестирования
 
-deploy:
+deploy_script:
   - npm run deploy 
