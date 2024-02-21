@@ -1,5 +1,6 @@
 {
-  "name": "ajs",
+  "name": "ahj",
+  "homepage": "https://knjaz1989.github.io/ahj_h3_t1/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +9,9 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint .",
     "test": "jest --coverage",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Evgeniy Malikov <evgeny.m3v@yandex.ru>",
   "license": "ISC",
@@ -22,6 +25,7 @@
     "eslint": "^8.54.0",
     "eslint-plugin-jest": "^27.6.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.5.3",
     "image-webpack-loader": "^8.1.0",
     "jest": "^29.7.0",
