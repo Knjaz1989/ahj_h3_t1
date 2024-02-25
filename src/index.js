@@ -1,54 +1,39 @@
 import './images/goblin.png';
+import './images/hammer32px.png';
 import './style.css';
+import Box from './js/box.js';
+import Image from './js/image.js';
+import Score from './images/score.js';
 
 
 document.addEventListener('DOMContentLoaded', function () {
   
   const boxes = document.querySelectorAll(".box");
 
+  const boxInst = new Box(boxes);
+  const imageInst = new Image();
+  const scoreInst = new Score();
+
   boxes.forEach(box => {
     box.addEventListener("click", () => {
-      deleteColor();
+      boxInst.deleteColor();
       if (box.children.length == 0) {
         box.style.backgroundColor = 'red';
+        scoreInst.addLose();
       } else {
         box.style.backgroundColor = 'green';
+        scoreInst.addWin();
       }
     })
   });
 
-  function deleteColor() {
-    let coloredBox = document.querySelector('[style^="background-color"]')
-    if (coloredBox) {
-      coloredBox.removeAttribute("style");
-    }
-  }
-
-  function getRandomBox(items) {
-    let filteredBoxes = [...items].filter(box => box.children.length == 0);
-    return filteredBoxes[Math.floor(Math.random() * filteredBoxes.length)]
-  }
-
-  function setImage(box) {
-    let oImg = document.createElement("img");
-    oImg.setAttribute('src', 'images/goblin.png');
-    oImg.setAttribute('height', '150px');
-    oImg.setAttribute('width', '150px');
-    box.appendChild(oImg);
-  }
-
-  function deleteImage() {
-    let image = document.querySelector(".box > img");
-    image.remove();
-  }
-
-  let currentBox = getRandomBox(boxes);
-  setImage(currentBox);
+  let currentBox = boxInst.getRandomBox();
+  imageInst.setImage(currentBox);
 
   setInterval(() => {
-    let box = getRandomBox(boxes);
-    deleteImage();
-    deleteColor();
-    setImage(box);
+    let box = boxInst.getRandomBox();
+    imageInst.deleteImage();
+    boxInst.deleteColor();
+    imageInst.setImage(box);
   }, 575);
 })
