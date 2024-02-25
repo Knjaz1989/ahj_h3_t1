@@ -1,6 +1,6 @@
 export default class Score {
   constructor() {
-    this.loses = document.querySelector(".loses-score");;
+    this.loses = document.querySelector(".loses-score");
     this.wins = document.querySelector(".wins-score");
   }
 
